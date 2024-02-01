@@ -50,3 +50,55 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Ignore build artifacts
+build/
+bin/
+lib/
+CMakeFiles/
+Makefile
+CMakeCache.txt
+CTestTestfile.cmake
+
+# Ignore CMake user-specific files
+CMakeUserPresets.json
+CMakeUserPresets.json.user
+CMakeSettings.json
+CMakeCustom.txt
+
+# Ignore generated files
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+compile_commands.json.*
+
+# Ignore Visual Studio Code specific files
+.vscode/
+
+# Ignore CLion specific files
+.idea/
+
+# Ignore Qt Creator specific files
+*.user
+*.pro.user
+*.files
+*.creator.user
+*.cmake.user
+
+# Ignore Eclipse specific files
+.project
+.cproject
+.settings/
+
+# Ignore Sublime Text specific files
+*.sublime-project
+*.sublime-workspace
+
+# Ignore Xcode specific files
+*.xcodeproj/
+*.xcworkspace/
+
+# Ignore build tools
+Makefile
+Makefile.in
+CMakeLists.txt.user*

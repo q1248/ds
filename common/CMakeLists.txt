@@ -1,0 +1,1 @@
+add_library(common LinkList.c SeqList.c)
