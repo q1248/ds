@@ -1,6 +1,7 @@
 # ds
 learning ds in C description
 
+
 # how to use
 ## preparition
 1. you can use cmake
@@ -9,3 +10,6 @@ learning ds in C description
 
 ## build
 1. use cmake or use vsc cmake plugins
+
+# reference 
+https://github.com/krahets/hello-algo
