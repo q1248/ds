@@ -1,67 +1,59 @@
-/**
- * File: list_node.h
- * Created Time: 2023-01-09
- * Author: Reanon (793584285@qq.com)
- */
+#pragma once
 
-#ifndef LIST_NODE_H
-#define LIST_NODE_H
+typedef struct ListNode
+{
+    int value;
+    struct ListNode *next;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-/* 链表节点结构体 */
-typedef struct ListNode {
-    int val;               // 节点值
-    struct ListNode *next; // 指向下一节点的引用
 } ListNode;
 
-/* 构造函数，初始化一个新节点 */
-ListNode *newListNode(int val) {
-    ListNode *node;
-    node = (ListNode *)malloc(sizeof(ListNode));
-    node->val = val;
+/* generate a List with a value */
+ListNode *newListNode(int value)
+{
+    ListNode *node = (ListNode *)malloc(sizeof(ListNode));
+    node->value = value;
     node->next = NULL;
     return node;
 }
 
-/* Generate a linked list with an array */
-ListNode *arrToLinkedList(const int *arr, size_t size) {
-    if (size <= 0) {
+/* generate a List with an array */
+ListNode *arrToLinkedList(const int *arr, size_t size)
+{
+    if (size <= 0)
+    {
         return NULL;
     }
-
-    ListNode *dummy = newListNode(0);
-    ListNode *node = dummy;
-    for (int i = 0; i < size; i++) {
+    ListNode *res = newListNode(arr[0]);
+    ListNode *node = res;
+    for (int i = 1; i < size; i++)
+    {
         node->next = newListNode(arr[i]);
         node = node->next;
     }
-    return dummy->next;
+    node->next = NULL;
+    return res;
 }
 
-/* Get a list node with specific value from a linked list */
-ListNode *getListNode(ListNode *head, int val) {
-    while (head != NULL && head->val != val) {
+/* get a list node with specific value from a List */
+ListNode *getListNode(ListNode *head, int value)
+{
+    while (head != NULL)
+    {
+        if (head->value == value)
+        {
+            return head;
+        }
         head = head->next;
     }
-    return head;
 }
 
-/* Free the memory allocated to a linked list */
-void freeMemoryLinkedList(ListNode *cur) {
-    // 释放内存
-    ListNode *pre;
-    while (cur != NULL) {
-        pre = cur;
-        cur = cur->next;
-        free(pre);
+void freeList(ListNode *head)
+{
+    ListNode *node;
+    while (head != NULL)
+    {
+        node = head->next;
+        free(head);
+        head = node;
     }
 }
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif // LIST_NODE_H

@@ -55,10 +55,10 @@ extern "C"
     }
     while (node->next != NULL)
     {
-      printf("%d -> ", node->val);
+      printf("%d -> ", node->value);
       node = node->next;
     }
-    printf("%d\n", node->val);
+    printf("%d\n", node->value);
   }
 
   typedef struct Trunk
